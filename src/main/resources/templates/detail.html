@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>
+
+
+    </title>
+</head>
+<body>
+<div th:each="s : ${detail}">
+    <h1 th:text="${s.name}"> </h1>
+    <p th:text="'Height: ' + ${s.height}"></p>
+    <p th:text="'Weight: ' + ${s.mass}"></p>
+    <p th:text="'Hair: ' + ${s.hair_color}"></p>
+    <p th:text="'Skin: ' + ${s.skin_color}"></p>
+    <p th:text="'Eyes: ' + ${s.eye_color}"></p>
+    <p th:text="'Born: ' + ${s.birth_year}"></p>
+    <p th:text="'Gender: ' + ${s.gender}"></p>
+    <p th:text="'HomeWorld: ' + ${s.homeworld}"></p>
+    <h2>Films:</h2>
+    <div th:each="f : ${s.films}">
+        <li th:text="${f}"></li>
+    </div>
+</div>
+
+</body>
+</html>

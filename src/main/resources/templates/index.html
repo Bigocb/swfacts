@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Spring with Spring Boot, Spring MVC, and Kotlin</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+</head>
+<body>
+
+<!--<div th:each="student : ${{students}}">-->
+<!--<a th:text="${student}">Author name:</a>-->
+
+<!--<div>-->
+<div class="container">
+    <form th:object="${result}" th:action="@{/swinfo/search}" method="get">
+        <input type="text" name="search" id="search" th:value="${search}"/>
+        <input type="submit" value="Search"/>
+        <div th:if="${not #lists.isEmpty(results)}">
+            <h2>Results</h2>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Url</th>
+        </tr>
+        <tr th:each="s : ${results}">
+            <td th:text="${s.type}"></td>
+            <td th:text="${s.name}"></td>
+            <td>
+                <a th:href="'http://localhost:8080/swinfo/detail?url=' +${s.url} + '&type=' + ${s.type} " th:text="${s.url}" target="_blank" />
+            </td>
+        </tr>
+    </table>
+        </div>
+    </form>
+</div>
+</body>
+</html>
